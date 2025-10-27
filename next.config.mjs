@@ -1,9 +1,15 @@
+// next.config.mjs
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export",
-  basePath: "/pomofocus-Nextjs", // Pastikan nama ini SAMA PERSIS
+
+  // INI WAJIB ADA SAAT DEPLOY
+  basePath: "/pomofocus-Nextjs",
+
   images: {
     unoptimized: true,
   },
 };
+
 export default nextConfig;
