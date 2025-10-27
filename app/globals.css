@@ -1,26 +1,54 @@
-@import "tailwindcss";
+/* app/globals.css */
+
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --pomodoro-red: #d95550;
+  --short-break-cyan: #4c9195;
+  --long-break-blue: #457ca3;
+  --pomodoro-bg: #ba4949;
+  --short-break-bg: #38858a;
+  --long-break-bg: #397097;
+  --theme-color-dark: var(--pomodoro-bg);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* UBAH BAGIAN BODY INI */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Varela Round", sans-serif;
+  color: white;
+  /* HAPUS flex, justify, align dari sini */
+  height: 100vh;
+  margin: 0;
+  transition: background-color 0.5s ease;
+  background-color: var(--pomodoro-bg);
+}
+
+/* TAMBAHKAN KELAS BARU INI */
+.main-content {
+  /* Pindahkan flexbox ke sini */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Pastikan tetap penuh */
+
+  /* Beri padding atas agar tidak tertutup header (Header kita sekitar 60-70px) */
+  padding-top: 80px;
+  padding-bottom: 20px; /* Beri sedikit padding bawah */
+  box-sizing: border-box; /* Penting! */
+}
+
+/* Kelas-kelas body (TIDAK BERUBAH) */
+body.pomodoro {
+  background-color: var(--pomodoro-bg);
+  --theme-color-dark: var(--pomodoro-bg);
+}
+
+body.shortBreak {
+  background-color: var(--short-break-bg);
+  --theme-color-dark: var(--short-break-bg);
+}
+
+body.longBreak {
+  background-color: var(--long-break-bg);
+  --theme-color-dark: var(--long-break-bg);
 }

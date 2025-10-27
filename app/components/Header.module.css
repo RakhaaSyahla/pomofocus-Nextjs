@@ -1,0 +1,53 @@
+/* app/components/Header.module.css */
+
+.header {
+  width: 100%;
+  /* Latar transparan yang konsisten dengan tema */
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 15px 0;
+  position: fixed; /* Tetap di atas saat di-scroll */
+  top: 0;
+  left: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: "Varela Round", sans-serif; /* Pastikan font-nya sama */
+}
+
+.container {
+  /* Batasi lebar container header agar sejajar dengan timer */
+  width: 90%;
+  max-width: 540px; /* (Lebar timer 480px + padding) */
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  opacity: 0.9;
+}
+
+.logo:hover {
+  opacity: 1;
+}
+
+.navLink {
+  color: white;
+  text-decoration: none;
+  margin-left: 15px;
+  opacity: 0.8;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.2s;
+}
+
+.navLink:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  opacity: 1;
+}

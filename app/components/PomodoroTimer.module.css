@@ -1,0 +1,330 @@
+/* app/components/PomodoroTimer.module.css */
+
+.container {
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  padding: 20px 30px;
+  border-radius: 15px;
+  text-align: center;
+  width: 480px;
+  padding-top: 30px;
+}
+
+.modeButtons {
+  margin-bottom: 20px;
+}
+
+.modeBtn {
+  background-color: transparent;
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  margin: 0 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: inherit;
+  opacity: 0.8;
+  transition: all 0.2s ease;
+}
+
+.modeBtn:hover {
+  opacity: 1;
+}
+
+.modeBtn.active {
+  background-color: rgba(0, 0, 0, 0.15);
+  font-weight: bold;
+  opacity: 1;
+}
+
+.timer {
+  font-size: 120px;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.controlButtons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mainBtn {
+  background-color: white;
+  color: var(--theme-color-dark); /* Ambil warna dari globals.css */
+  border: none;
+  padding: 20px 40px;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 220px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.mainBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+.resetBtn {
+  background: transparent;
+  border: none;
+  color: white;
+  opacity: 0.7;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: inherit;
+  margin-top: 20px;
+  padding: 5px;
+}
+
+.resetBtn:hover {
+  opacity: 1;
+}
+
+/* --- STYLING TASKS --- */
+
+.tasksWrapper {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: left;
+}
+
+.tasksHeader {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.taskInputWrapper {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.taskInput {
+  flex-grow: 1;
+  padding: 12px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  background-color: rgba(0, 0, 0, 0.15);
+  color: white;
+  font-family: inherit;
+}
+
+.taskInput::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.taskAddBtn {
+  background-color: white;
+  color: var(--theme-color-dark);
+  border: none;
+  padding: 0 15px;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.taskAddBtn:hover {
+  background-color: #f0f0f0;
+}
+
+.taskList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.taskItem {
+  display: flex;
+  align-items: center;
+  padding: 12px 10px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 5px;
+  margin-bottom: 8px;
+  transition: background-color 0.2s;
+}
+
+.taskItem:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.taskCheckbox {
+  margin-right: 15px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0; /* Mencegah checkbox mengecil */
+}
+
+/* INI WRAPPER UNTUK TEKS */
+.taskTextWrapper {
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.taskText {
+  font-size: 16px;
+  color: white;
+}
+
+.taskTextCompleted {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: line-through;
+}
+
+/* INI STYLE TOMBOL DELETE */
+.taskDeleteBtn {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0.5;
+  padding: 0 5px 0 10px;
+  line-height: 1;
+  transition: opacity 0.2s;
+  flex-shrink: 0; /* Mencegah tombol mengecil */
+}
+
+.taskDeleteBtn:hover {
+  opacity: 1;
+  color: #ff8a80; /* Warna merah muda saat hover */
+}
+
+/* --- STYLING TOMBOL SETTINGS --- */
+
+.settingsBtn {
+  background: transparent;
+  border: none;
+  color: white;
+  opacity: 0.7;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: inherit;
+  margin-top: 20px;
+  padding: 5px;
+  transition: opacity 0.2s;
+}
+
+.settingsBtn:hover {
+  opacity: 1;
+}
+
+/* --- STYLING MODAL SETTINGS --- */
+
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: #333;
+  padding: 25px;
+  border-radius: 10px;
+  width: 400px;
+  color: white;
+  font-family: inherit;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.modalHeader h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.modalCloseBtn {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+.modalCloseBtn:hover {
+  opacity: 1;
+}
+
+.modalBody {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.settingInputGroup {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.settingInputGroup label {
+  font-size: 16px;
+}
+
+.settingInputGroup input {
+  width: 80px;
+  padding: 8px 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  font-family: inherit;
+}
+
+.modalActions {
+  text-align: right;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.modalSaveBtn {
+  background-color: white;
+  color: #333;
+  border: none;
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background-color 0.2s;
+}
+
+.modalSaveBtn:hover {
+  background-color: #f0f0f0;
+}
