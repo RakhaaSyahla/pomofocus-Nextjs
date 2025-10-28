@@ -4,7 +4,6 @@
 const nextConfig = {
   output: "export",
 
-  // INI WAJIB ADA SAAT DEPLOY
   basePath: "/pomofocus-Nextjs",
 
   images: {
